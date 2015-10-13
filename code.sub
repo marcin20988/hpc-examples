@@ -6,11 +6,5 @@
 # Load module environment
 . /etc/profile.d/modules.sh
 
-module load icc
-module load impi
-. mpivars.sh
-. iccvars.sh intel64
-export I_MPI_CC=icc
-export I_MPI_CXX=icpc
-
-mpirun -n 2 /panfs/storage/home/s200292/test/pingPong
+. $HOME/hpc-examples/mpi.sh
+mpirun -n 8 $HOME/hpc-examples/a.out
