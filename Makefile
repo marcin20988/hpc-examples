@@ -1,11 +1,10 @@
-CC=g++
+CC=mpicc
 CFLAGS=-I
-DEPS=
+DEPS=ring.o dotProduct.o hello.o
 
-main: main.cpp $(DEPS)
-	$(CC) main.cpp $(DEPS) -o main $(FLAGS)
+all: $(DEPS)
 
-%.o: %.cpp
+%.o: %.C
 	$(CC) $< -o $@ $(FLAGS) -c
 
 clean:
