@@ -26,8 +26,8 @@ int main(int argc, char **argv)
 	}
 	*/
 	count = 1;
-	MPI_Issend(&rank, count, MPI_INT, next,rank ,MPI_COMM_WORLD, &reqSend);
-	printf("processor %d the value of next is %d\n", rank, next);
+	MPI_Isend(&rank, count, MPI_INT, next,rank ,MPI_COMM_WORLD, &reqSend);
+	//printf("processor %d the value of next is %d\n", rank, next);
 	MPI_Irecv(&prev, count, MPI_INT, prev,prev, MPI_COMM_WORLD, &reqRecv);
 	MPI_Wait(&reqRecv, &status);
 	printf("processor %d the value of prev is %d\n", rank, prev);
@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 	}
 	*/
 	time2[rank] = MPI_Wtime();
-	printf("Time elapsed for processor %d: %lf\n", rank, time2[rank]-time1[rank]);
+	//printf("Time elapsed for processor %d: %lf\n", rank, time2[rank]-time1[rank]);
 	MPI_Finalize();
 	return 0;
 }
